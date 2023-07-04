@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { baseURl } from '../utils/Baseurl';
 
 
 const Read = () => {
@@ -9,7 +8,7 @@ const Read = () => {
 
   async function handleDelete(id) {
     try {
-      const response = await fetch(`${baseURl}/api/users/${id}`, {
+      const response = await fetch(`http://localhost:6400/api/users/${id}`, {
         method: "DELETE",
       });
   
@@ -32,7 +31,7 @@ const Read = () => {
 
   async function getData() {
     try {
-      const response = await fetch(`${baseURl}/api/users`);
+      const response = await fetch('http://localhost:6400/api/users');
       const result = await response.json();
 
       if (!response.ok) {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { baseURl } from "../utils/Baseurl";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -13,7 +12,7 @@ const Create = () => {
     e.preventDefault();
     var addUser = { name, email, age };
     console.log(addUser);
-    const response = await fetch(`${baseURl}/api/users`, {
+    const response = await fetch("http://localhost:6400/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
