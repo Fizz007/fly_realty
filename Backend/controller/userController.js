@@ -18,6 +18,7 @@ const getAllUser = async (req, res) => {
 };
 
 const getById = async (req, res) => {
+  const {id} = req.body
   try {
     const user = await User.findById({ _id: id });
     res.send(user);
@@ -47,8 +48,8 @@ const createUser = async (req, res) => {
     });
     
     res.status(200).json({message:"userAdded", user:userAdded});
-  } catch (err) {
-    res.status(500).json({message:"error"});
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -66,9 +67,9 @@ const deleteUser = async (req, res) => {
   const { id } = req.params;
   try {
     const deletedUser = await User.findByIdAndDelete({ _id: id });
-    res.status(430).json({message:"deleted",deletedUser});
+    res.status(201).json({message:"deleted",deletedUser});
   } catch (error) {
-    res.send(error);
+    res.status(400).json({ error: error.message });
   }
 };
 

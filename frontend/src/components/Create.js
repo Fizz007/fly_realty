@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const Create = () => {
   const [name, setName] = useState("");
@@ -52,38 +51,38 @@ const Create = () => {
   // };
 
   return (
-    <div class="container my-2">
-      <h1 class="h1 text-center">Fill the data</h1>
-      {error && <div class="alert alert-danger"> {error} </div>}
+    <div className="container my-2">
+      <h1 className="h1 text-center">Fill the data</h1>
+      {error && <div className="alert alert-danger"> {error} </div>}
       <form className="form" onSubmit={handleSubmit}>
-        <div class="mb-3">
-          <label class="form-label">Name</label>
+        <div className="mb-3">
+          <label className="form-label">Name</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label class="form-label">Email address</label>
+        <div className="mb-3">
+          <label className="form-label">Email address</label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label class="form-label">Age</label>
+        <div className="mb-3">
+          <label className="form-label">Age</label>
           <input
             type="number"
-            class="form-control"
+            className="form-control"
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
