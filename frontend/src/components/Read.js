@@ -19,8 +19,8 @@ const Read = () => {
         setError(result1.error);
       } else if(response.ok) {
         console.log("deleted", response.ok);
-        getData();
         setError("Deleted Successfully");
+        getData();
         setError("");
       }
     } catch (error) {
