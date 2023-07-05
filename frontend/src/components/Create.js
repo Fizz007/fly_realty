@@ -13,7 +13,7 @@ const Create = () => {
     e.preventDefault();
     var addUser = { name, email, age };
     console.log(addUser);
-    const response = await fetch(`${baseurl}/api/users`, {
+    const response = await fetch(`http://localhost:6400/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

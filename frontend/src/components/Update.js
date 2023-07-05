@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { baseurl } from "../utils/Baseurl";
 
 const Update = () => {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ const Update = () => {
 
   //receving single user data
   const getSingleData = async () => {
-    const response = await fetch(`http://localhost:6400/api/users/${id}`);
+    const response = await fetch(`http://localhost:6400/api/users/api/users/${id}`);
     const result = await response.json();
 
     if (response.ok) {
