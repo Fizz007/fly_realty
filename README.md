@@ -37,8 +37,7 @@ npm run start
 
 ### Frontend
 
-- HTML
-- CSS
+- Bootstrap
 - JavaScript
 - React
 
