@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { baseurl } from '../utils/Baseurl';
-
 
 const Read = () => {
   const [data, setData] = useState([]);
@@ -12,9 +10,9 @@ const Read = () => {
       const response = await fetch(`http://localhost:6400/api/users/${id}`, {
         method: "DELETE",
       });
-  
+
       const result1 = await response.json();
-  
+
       if (!response.ok) {
         console.log(result1);
         setError(result1.error);
@@ -28,7 +26,6 @@ const Read = () => {
       console.error(error);
     }
   }
-  
 
   async function getData() {
     try {
@@ -58,15 +55,17 @@ const Read = () => {
           <div key={ele._id} className="col-3">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">{ele.name}</h5>
+                <h5 className="card-title">{`${ele.firstName} ${ele.lastName}`}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">{ele.email}</h6>
-                <p className="card-text">{ele.age}</p>
+                <p className="card-text">Gender: {ele.gender}</p>
+                <p className="card-text">Address: {ele.address}</p>
+                <p className="card-text">Mobile: {ele.mobile}</p>
+                <p className="card-text">Comments: {ele.comments}</p>
                 <span className="card-link cursor-pointer">
                   <Link to={`/${ele._id}`}>Edit</Link>
-                  
-                  </span>
-                <span className="card-link cursor-pointer"  onClick={() => handleDelete(ele._id)}>
-                <Link>Delete</Link>
+                </span>
+                <span className="card-link cursor-pointer" onClick={() => handleDelete(ele._id)}>
+                  <Link>Delete</Link>
                 </span>
               </div>
             </div>
