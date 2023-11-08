@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { baseurl } from "../utils/Baseurl";
 
 const Update = () => {
   const [user, setUser] = useState({
@@ -18,7 +19,7 @@ const Update = () => {
 
   // Receiving single user data
   const getSingleData = async () => {
-    const response = await fetch(`http://localhost:6400/api/users/${id}`);
+    const response = await fetch(`${baseurl}/api/users/${id}`);
     const result = await response.json();
 
     if (response.ok) {
@@ -37,7 +38,7 @@ const Update = () => {
   // Passing edited data to backend
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:6400/api/users/${id}`, {
+    const response = await fetch(`${baseurl}/api/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { baseurl } from "../utils/Baseurl";
 
 const Create = () => {
   const [user, setUser] = useState({
@@ -28,7 +29,7 @@ const Create = () => {
 
     console.log(user);
 
-    const response = await fetch(`http://localhost:6400/api/users`, {
+    const response = await fetch(`${baseurl}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
